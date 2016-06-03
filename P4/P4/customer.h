@@ -1,10 +1,12 @@
-//
-//  customer.h
-//  P4
-//
-//  Created by USER on 6/3/16.
-//  Copyright (c) 2016 Shane. All rights reserved.
-//
+// ------------------------------------------------ customer.h ---------------------------------------------------------
+// Adam Croutworst, Shane Gardner CSS343A
+// 06/03/16
+// 06/08/16
+// --------------------------------------------------------------------------------------------------------------------
+// Customer - This class interacts with the inventory and includes the contents of a customer, 
+// history of the customer, and a list of customers.
+// --------------------------------------------------------------------------------------------------------------------
+
 
 #include <iostream>
 #include <string>

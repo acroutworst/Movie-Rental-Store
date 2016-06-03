@@ -1,5 +1,16 @@
+// ------------------------------------------------ classic.h ---------------------------------------------------------
+// Adam Croutworst, Shane Gardner CSS343A
+// 06/03/16
+// 06/08/16
+// --------------------------------------------------------------------------------------------------------------------
+// Classic - This class extends the movie class and adds functionality of major actor and release date. 
+// Classic is denoted as 'C'.
+// --------------------------------------------------------------------------------------------------------------------
+
 #include <iostream>
+#include <string>
 #include <vector>
+
 using namespace std;
 
 class Classic //: public Movie 
