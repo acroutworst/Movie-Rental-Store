@@ -26,12 +26,12 @@ public:
     void addStock(int movieID);       // Add stock by movie info
     //Movie accessor;	      // Access a movie
     //Customer accessor; 	      // Access a customer
-
-    
-private:
     void buildComedy();	      // Build comedy hash
     void buildDrama(); 	     // Build drama hash
     void buildClassic();          // build classic hash
+    
+private:
+    
     int comedyHash[GLOBAL_MAX]; 	    //array hash table for inventory information
     int dramaHash[GLOBAL_MAX]; 		     //array hash table for inventory information
     int classicHash[GLOBAL_MAX]; 		     //array hash table for inventory information

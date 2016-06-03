@@ -10,7 +10,12 @@
 
 Inventory::Inventory()
 {
-    
+    for (int i = 0; i < GLOBAL_MAX; i++)
+    {
+        comedyHash[i] = NULL;
+        dramaHash[i] = NULL;
+        classicHash[i] = NULL;
+    }
 }
 
 Inventory::~Inventory ()
