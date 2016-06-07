@@ -17,7 +17,7 @@ public:
 	Movie(); //default constructor
 	~Movie(); //deconstructor
 
-	void isMovie(int *movieID); //check if valid movie
+	bool isMovie(int *movieID); //check if valid movie
 
 private:
 	struct movie
@@ -29,7 +29,7 @@ private:
 		int releaseYear; //year of release
 	};
 
-	bool changeStock(int *newStock); //modify stock
+	void changeStock(int *movieID, int *newStock); //modify stock
 
 };
 

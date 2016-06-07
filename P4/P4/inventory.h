@@ -9,10 +9,9 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 using namespace std;
-
-const int GLOBAL_MAX = 100;
 
 class Inventory
 {
@@ -32,5 +31,5 @@ public:
     
 private:
     
-    int movieHash[GLOBAL_MAX]; //movie hash table
+    vector<int> movieLibrary; //movie hash table
 };

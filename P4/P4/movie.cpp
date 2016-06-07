@@ -9,19 +9,41 @@
 
 #include "movie.h"
 
+// --------------------- Movie() ---------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// ----------------------------------------------------------------------------
 Movie::Movie()
 {
+    
 }
 
-
+// --------------------- ~Movie() ---------------------------------------------
+// Deconstructor
+// Preconditions: none
+// Postconditions: none
+// ----------------------------------------------------------------------------
 Movie::~Movie()
 {
 }
 
-void Movie::isMovie(int *movieID)
+// --------------------- isMovie() ---------------------------------------------
+// Function to check if valid movie or not
+// Preconditions: movieID
+// Postconditions: returns true or false result
+// ----------------------------------------------------------------------------
+bool Movie::isMovie(int *movieID)
 {
+    return 1;
 }
 
-bool Movie::changeStock(int *newStock)
+// --------------------- changeStock() ---------------------------------------------
+// Modify stock of a particular movie
+// Preconditions: none
+// Postconditions: none
+// ----------------------------------------------------------------------------
+void Movie::changeStock(int *movieID, int *newStock)
 {
+    
 }

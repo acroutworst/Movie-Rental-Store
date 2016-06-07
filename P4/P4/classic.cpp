@@ -9,15 +9,30 @@
 
 #include "classic.h"
 
+// --------------------- Classic() ---------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// ----------------------------------------------------------------------------
 Classic::Classic()
 {
+    
 }
 
-
+// --------------------- ~Classic() ---------------------------------------------
+// Deconstructor
+// Preconditions: none
+// Postconditions: none
+// ----------------------------------------------------------------------------
 Classic::~Classic()
 {
 }
 
+// --------------------- changeUniqueStock() ---------------------------------------------
+// Modify the stock of a duplicate movie with different main actors
+// Preconditions: name of main actor specifying which duplicate movie will be changed
+// Postconditions: modified stock
+// ----------------------------------------------------------------------------
 void Classic::changeUniqueStock(string *name)
 {
 }
