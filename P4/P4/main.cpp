@@ -12,11 +12,19 @@
 #include "movie.h"
 #include "customer.h"
 #include <iostream>
+#include <fstream>
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
 
+	ifstream infile1("data4movies.txt");
+	ifstream infile2("data4customers.txt");
+	ifstream infile3("data4commands.txt");
 
-    std::cout << "Hello, World!\n";
-    return 0;
+	if (!infile1 || !infile2 || !infile3)
+	{
+		cout << "File could not be opened" << endl;
+		return 1;
+	}
+
+	return 0;
 }
