@@ -7,7 +7,45 @@
 // Classic is denoted as 'C'.
 // --------------------------------------------------------------------------------------------------------------------
 
-#include <iostream>
+
+#ifndef _CLASSICMOVIE_H_
+#define _CLASSICMOVIE_H_
+#include <string>
+#include <iomanip>
+#include "movie.h"
+
+
+//----------------------------------------------------------------------------
+// Class: ClassicMovie
+// child class of movie class, granchild of inventory class. 
+//----------------------------------------------------------------------------
+// 
+//
+
+class ClassicMovie : public Movie {
+
+public:
+	ClassicMovie();
+	ClassicMovie(const ClassicMovie& rightSide);
+	~ClassicMovie();
+
+	void setData(istream& infile);
+	virtual void setDataTwice(istream& infile);
+	void display() const;
+	virtual void displayHeader() const;
+	virtual bool operator==(const Inventory& rightSide) const;
+	virtual bool operator<(const Inventory& rightSide) const;
+	virtual Inventory * create();
+private:
+	string actorFName, actorLName;
+	int month;
+	const string GENRE;
+};
+
+
+#endif
+
+/*#include <iostream>
 #include <string>
 #include <vector>
 
@@ -33,5 +71,5 @@ private:
 	vector<classicMovie> uniqueClassics; //track multiples of movie with different 
 										  //main actors
 
-};
+};*/
 

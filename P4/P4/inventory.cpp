@@ -8,65 +8,77 @@
 
 #include "inventory.h"
 
-// --------------------- Inventory() ---------------------------------------------
+// --------------------- Inventory() -------------------------------------------
 // Default constructor
 // Preconditions: none
 // Postconditions: none
-// ----------------------------------------------------------------------------
-Inventory::Inventory()
+// -----------------------------------------------------------------------------
+Inventory::Inventory() : stockNumber(-1), maxStock(0) 
 {
-    for (int i = 0; i < GLOBAL_MAX; i++)
-    {
-        movieLibrary[i] = NULL;
-    }
-}
+} 
 
 // --------------------- ~Inventory() ---------------------------------------------
 // Deconstructor
 // Preconditions: none
 // Postconditions: none
-// ----------------------------------------------------------------------------
-Inventory::~Inventory ()
+// --------------------------------------------------------------------------------
+Inventory::~Inventory() 
 {
-    
+} 
+
+// --------------------- SetMaxCopies ---------------------------------------------
+// SetMaxCopies: For an inventory item, the max copies (10)
+// is produced
+// Preconditions: Max copies
+// Postconditions: Stock set to 10
+// --------------------------------------------------------------------------------
+void Inventory::setMaxCopies(const int maxCopies)
+{
+	maxStock = maxCopies;
+
+	if (stockNumber < 0)
+		stockNumber = maxCopies;
 }
 
-// --------------------- buildHash() ---------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
-// ----------------------------------------------------------------------------
-void Inventory::buildHash(string movieArray[])
+// --------------------- Increase Stock -------------------------------------------
+// increaseStock: Increase the number of stock 
+// Preconditions: Stock is not below 0; there is some stock.
+//				  Stock is not at its max stock
+// Postconditions: Stock is incremented by 1
+// --------------------------------------------------------------------------------
+void Inventory::increaseStock()
 {
-    
+	if (stockNumber != maxStock)
+		stockNumber++;
+}	
+
+// --------------------- Decrease Stock -------------------------------------------
+// decreaseStock: Decrease the number of stock 
+// Preconditions: Stock is not 0; there is some stock.
+// Postconditions: Stock is decremented by 1
+// --------------------------------------------------------------------------------
+void Inventory::decreaseStock()
+{
+	if (stockNumber != 0)
+		stockNumber--;
 }
 
-// --------------------- borrow() ---------------------------------------------
-// Process customer borrowing movie transaction
-// Preconditions: movie ID and customer ID
-// Postconditions: stock modified and customer's borrowing history modified
-// ----------------------------------------------------------------------------
-void Inventory::borrow(int movieID, int custID)
+ // --------------------- Stock In -------------------------------------------------
+ // stockIn: Get curret stock 
+ // Preconditions: Stock is not less than 0 and greater than the max copies
+ // Postconditions: Number of stock
+ // --------------------------------------------------------------------------------
+int Inventory::stockIn()
 {
-    
+	return stockNumber;
 }
 
-// --------------------- returnMovie() ---------------------------------------------
-// Process customer returning movie transaction
-// Preconditions: movie ID and customer ID
-// Postconditions: stock modified and customer's borrowing history modified
-// ----------------------------------------------------------------------------
-void Inventory::returnMovie(int movieID, int custID)
+// --------------------- Stock Out -------------------------------------------------
+// stockOut: Get number of borrowed items 
+// Preconditions: Stock is not less than 0 and greater than the max copies
+// Postconditions: Number of borrowed stock
+// --------------------------------------------------------------------------------
+int Inventory::stockOut() 
 {
-    
-}
-
-// --------------------- addStock() ---------------------------------------------
-// Add stock of movie to store's inventory
-// Preconditions: ID of movie to add to stock
-// Postconditions: modified stock
-// ----------------------------------------------------------------------------
-void Inventory::addStock(int movieID)
-{
-    
+	return maxStock - stockNumber;
 }

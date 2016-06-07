@@ -6,6 +6,12 @@
 // Inventory - This class will handle transactions by customers and contains the hash function to store movie library
 // --------------------------------------------------------------------------------------------------------------------
 
+
+#ifndef INVENTORY_H
+#define INVENTORY_H
+
+#include <iomanip>
+
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -15,21 +21,31 @@ using namespace std;
 
 class Inventory
 {
+
 public:
-    
-    Inventory (); 		      // Default constructor
-    ~Inventory (); 		      // Default destructor
-    void buildHash(string movieArray[]); // Build hash of movies
-    void borrow(int movieID, int custID); // Change stock by intaking movie and customer
-    void returnMovie(int movieID, int custID); // Return contents of movie
-    void addStock(int movieID);       // Add stock by movie info
-    //Movie accessor;	      // Access a movie
-    //Customer accessor; 	      // Access a customer
-    //void buildComedy();	      // Build comedy hash
-    //void buildDrama(); 	     // Build drama hash
-    //void buildClassic();          // build classic hash
-    
+	Inventory();								// Constructor
+	Inventory(const Inventory&);				// Copy constructor
+	virtual ~Inventory();					    // Destructor
+	
+	virtual void setData(istream&) = 0;			// Set inventory data
+	virtual void setDataTwice(istream&) = 0;	// Set additional inventory data
+	virtual void display() const = 0;			// Display data
+	virtual void displayHeader() const = 0;
+	virtual string getItem() const = 0;			//return the inventory item
+
+	void setMaxCopies(const int);
+	void increaseStock();						// Increase by 1
+	void decreaseStock();						// Decrease by 1
+	int stockIn();								// Return current stock
+	int stockOut();								// Return borrowed stock
+
+	virtual bool operator==(const Inventory&) const = 0;
+	virtual bool operator<(const Inventory&) const = 0;
+	virtual Inventory* create() = 0;			// Create instance of inventory
+
 private:
-    
-    vector<int> movieLibrary; //movie hash table
+	int stockNumber;
+	int maxStock;
 };
+
+#endif
