@@ -21,7 +21,6 @@ using namespace std;
 
 class Inventory
 {
-
 public:
 	Inventory();								// Constructor
 	Inventory(const Inventory&);				// Copy constructor

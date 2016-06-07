@@ -8,34 +8,27 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 
-#ifndef _CLASSICMOVIE_H_
-#define _CLASSICMOVIE_H_
+#ifndef CLASSICMOVIE_H
+#define CLASSICMOVIE_H
 #include <string>
 #include <iomanip>
 #include "movie.h"
 
-
-//----------------------------------------------------------------------------
-// Class: ClassicMovie
-// child class of movie class, granchild of inventory class. 
-//----------------------------------------------------------------------------
-// 
-//
-
-class ClassicMovie : public Movie {
-
+class ClassicMovie : public Movie 
+{
 public:
 	ClassicMovie();
-	ClassicMovie(const ClassicMovie& rightSide);
+	ClassicMovie(const ClassicMovie& );
 	~ClassicMovie();
 
 	void setData(istream& infile);
 	virtual void setDataTwice(istream& infile);
 	void display() const;
 	virtual void displayHeader() const;
-	virtual bool operator==(const Inventory& rightSide) const;
-	virtual bool operator<(const Inventory& rightSide) const;
+	virtual bool operator==(const Inventory& ) const;
+	virtual bool operator<(const Inventory& ) const;
 	virtual Inventory * create();
+
 private:
 	string actorFName, actorLName;
 	int month;
@@ -45,31 +38,5 @@ private:
 
 #endif
 
-/*#include <iostream>
-#include <string>
-#include <vector>
 
-using namespace std;
-
-class Classic //: public Movie 
-{
-public:
-	Classic(); //default constructor
-	~Classic(); //deconstructor
-
-	// Need a struct for Actor?
-	void changeUniqueStock(string *name); // Change stock of specific movie
-
-private:
-	struct classicMovie
-	{
-		//string Actor first; //actor’s first name
-		//string Actor last; //actor’s last name
-		//int Release month; //release month of movie
-		int uniqueStock;  // tracks stock for movies w/ same name, different actors
-	};
-	vector<classicMovie> uniqueClassics; //track multiples of movie with different 
-										  //main actors
-
-};*/
 

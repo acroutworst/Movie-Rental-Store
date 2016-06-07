@@ -17,7 +17,7 @@
 
 int main() {
 
-	StoreManager storeManager("MOVIE: Buy My Stuff");
+	StoreManager storeManager("STORE: Store Manager");
 
 	ifstream infile1("data4movies.txt");		// Read in text files
 	ifstream infile2("data4customers.txt");
