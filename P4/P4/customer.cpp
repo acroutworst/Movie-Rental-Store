@@ -7,12 +7,16 @@
 // history of the customer, and a list of customers.
 // --------------------------------------------------------------------------------------------------------------------
 
-
 #include "customer.h"
 
 Customer::Customer()
 {
-    
+	for (int i = 0; i < GLOBALMAXCUST; i++)
+	{
+		customerHash[i].firstName = NULL;
+		customerHash[i].lastName = NULL;
+		customerHash[i].history = NULL;
+	}
 }
 
 Customer::~Customer()

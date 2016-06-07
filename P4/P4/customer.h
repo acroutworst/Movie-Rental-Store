@@ -10,10 +10,12 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 #include "inventory.h"
+#include <vector>
 
 using namespace std;
+
+const int GLOBALMAXCUST = 10000;
 
 class Customer
 {
@@ -29,11 +31,11 @@ public:
 private:
     struct cust
     {
-        int custID; //customer ID
+        //int custID; //customer ID
         string lastName; //customer last name
         string firstName; //customer first name
         vector<string> history; //customers borrowing history
     };
-    
-    vector<cust> customerList;	//list of customers
+
+	Customer *customerHash = new Customer[GLOBALMAXCUST]; //customer hash table, can handle digits 0000-9999 per instructions
 };

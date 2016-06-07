@@ -10,6 +10,8 @@
 		CE17B7211D020D410058AB13 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B7201D020D410058AB13 /* main.cpp */; };
 		CE17B7291D020EC70058AB13 /* customer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B7281D020EC70058AB13 /* customer.cpp */; };
 		CE17B72C1D0213B90058AB13 /* inventory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B72A1D0213B90058AB13 /* inventory.cpp */; };
+		CE17B72E1D0671C50058AB13 /* classic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B72D1D0671C50058AB13 /* classic.cpp */; };
+		CE17B7311D0671D20058AB13 /* movie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B7301D0671D20058AB13 /* movie.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +33,10 @@
 		CE17B7281D020EC70058AB13 /* customer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = customer.cpp; sourceTree = "<group>"; };
 		CE17B72A1D0213B90058AB13 /* inventory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inventory.cpp; sourceTree = "<group>"; };
 		CE17B72B1D0213B90058AB13 /* inventory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inventory.h; sourceTree = "<group>"; };
+		CE17B72D1D0671C50058AB13 /* classic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = classic.cpp; sourceTree = "<group>"; };
+		CE17B72F1D0671CB0058AB13 /* classic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = classic.h; sourceTree = "<group>"; };
+		CE17B7301D0671D20058AB13 /* movie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = movie.cpp; sourceTree = "<group>"; };
+		CE17B7321D0671DB0058AB13 /* movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = movie.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,10 @@
 		CE17B71F1D020D410058AB13 /* P4 */ = {
 			isa = PBXGroup;
 			children = (
+				CE17B7321D0671DB0058AB13 /* movie.h */,
+				CE17B7301D0671D20058AB13 /* movie.cpp */,
+				CE17B72F1D0671CB0058AB13 /* classic.h */,
+				CE17B72D1D0671C50058AB13 /* classic.cpp */,
 				CE17B7201D020D410058AB13 /* main.cpp */,
 				CE17B7271D020E200058AB13 /* customer.h */,
 				CE17B7281D020EC70058AB13 /* customer.cpp */,
@@ -130,7 +140,9 @@
 			files = (
 				CE17B7211D020D410058AB13 /* main.cpp in Sources */,
 				CE17B7291D020EC70058AB13 /* customer.cpp in Sources */,
+				CE17B72E1D0671C50058AB13 /* classic.cpp in Sources */,
 				CE17B72C1D0213B90058AB13 /* inventory.cpp in Sources */,
+				CE17B7311D0671D20058AB13 /* movie.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

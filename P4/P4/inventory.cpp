@@ -1,10 +1,10 @@
-//
-//  inventory.cpp
-//  P4
-//
-//  Created by USER on 6/3/16.
-//  Copyright (c) 2016 Shane. All rights reserved.
-//
+// ------------------------------------------------ inventory.cpp ---------------------------------------------------------
+// Adam Croutworst, Shane Gardner CSS343A
+// 06/03/16
+// 06/08/16
+// --------------------------------------------------------------------------------------------------------------------
+// Inventory - This class will handle transactions by customers and contains the hash function to store movie library
+// --------------------------------------------------------------------------------------------------------------------
 
 #include "inventory.h"
 
@@ -12,9 +12,7 @@ Inventory::Inventory()
 {
     for (int i = 0; i < GLOBAL_MAX; i++)
     {
-        comedyHash[i] = NULL;
-        dramaHash[i] = NULL;
-        classicHash[i] = NULL;
+        movieHash[i] = NULL;
     }
 }
 
