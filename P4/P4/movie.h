@@ -26,7 +26,7 @@ public:
 	virtual void display() const; //display movie
 	virtual void displayHeader() const = 0; //header for display function
 	virtual void setData(istream& infile); //read in data
-    virtual void setData2(istream&) = 0; //pure virtual version of setData
+    virtual void setDataTwice(istream&) = 0; //pure virtual version of setData
 
 	virtual string getItem() const;	//retrieve item
 	string getDirector(); //retrieve director
