@@ -9,40 +9,43 @@
 
 
 
-#ifndef _CUSTOMER_H_
-#define _CUSTOMER_H_
+#ifndef CUSTOMER_H
+#define CUSTOMER_H
 #include "movie.h"
-#include <iostream>
 #include <string>
 #include <vector>
 #include "transaction.h"
+#include <iostream>
 
 using namespace std;
 
 class Customer 
 {
 public:
-	Customer();
-	Customer(istream&);
-	Customer(const Customer&);
-	virtual ~Customer();
+	Customer();								// Constructor
+	Customer(istream&);						// Constructor with read in
+	Customer(const Customer&);				// Copy constructor
+	virtual ~Customer();					// Destructor
 
-	void setData(istream& infile);
-
-	void displayCustomerHistory() const;
-	void addTransaction(Transaction);
+	// Inherited functions
 	virtual void display() const;
-	int getCustomerID() const;
-	string getFirstName() const;
-	string getLastName() const;
-	virtual bool operator==(const Customer& ) const;
-	virtual bool operator!=(const Customer& ) const;
+	virtual bool operator==(const Customer&) const;
+	virtual bool operator!=(const Customer&) const;
+
+	void setData(istream& infile);			// Set inventory data
+	void displayCustomerHistory() const;	// Display list of customer history
+	void addTransaction(Transaction);		// Process a transaction
+				
+	int getCustomerID() const;				// Return customer ID
+	string getFirstName() const;			// Return first name of customer 
+	string getLastName() const;				// Return last name of customer
+
 
 private:
-	int id;
-	string firstName;
-	string lastName;
-	vector<Transaction> transactionHistory;
+	int id;									// ID of customer
+	string firstName;						// First name of customer
+	string lastName;						// Last name of customer
+	vector<Transaction> transactionHistory; // Transaction history
 
 };
 

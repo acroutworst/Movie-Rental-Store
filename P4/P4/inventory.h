@@ -30,7 +30,7 @@ public:
 	virtual void setDataTwice(istream&) = 0;	// Set additional inventory data
 	virtual void display() const = 0;			// Display data
 	virtual void displayHeader() const = 0;
-	virtual string getItem() const = 0;			//return the inventory item
+	virtual string getItem() const = 0;			// Return the inventory item
 
 	void setMaxCopies(const int);
 	void increaseStock();						// Increase by 1
