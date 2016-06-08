@@ -76,7 +76,7 @@ void BinTree::destroyTree(Node*& tree)
 		tree = NULL;
 	}
 }
-
+ 
 // --------------------- Insert -------------------------------------------
 // insert: Insert a node
 // Preconditions: Insert node and amount of copies
