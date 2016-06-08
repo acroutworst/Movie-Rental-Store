@@ -18,7 +18,7 @@ using namespace std;
 class Movie : public Inventory 
 {
 public:
-     
+    
 	Movie();	
 	Movie(const Movie& );
 	~Movie();	

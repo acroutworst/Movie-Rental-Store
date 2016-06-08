@@ -45,10 +45,10 @@ ClassicMovie::~ClassicMovie()
 {
 }
 
-// --------------------- Set Dat -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- setData() -------------------------------------------
+// Read in data from movie file
+// Preconditions: file with info, valid and invalid
+// Postconditions: movies will be read in and invalid data will not be kept
 // -----------------------------------------------------------------------------
 void ClassicMovie::setData(istream& infile) 
 {
@@ -71,10 +71,10 @@ void ClassicMovie::setData(istream& infile)
 	infile >> month >> year;
 }
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- setDataTwice() -------------------------------------------
+// Safety function to help read in data
+// Preconditions: file with info, valid and invalid
+// Postconditions: movies will be read in and invalid data will not be kept
 // -----------------------------------------------------------------------------
 void ClassicMovie::setDataTwice(istream& infile) 
 {
@@ -85,10 +85,11 @@ void ClassicMovie::setDataTwice(istream& infile)
 
 }
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- display() -------------------------------------------
+// Display movie
+// Preconditions: movie data to output
+// Postconditions: properly formatted output, if no info in data types, will not
+// output
 // -----------------------------------------------------------------------------
 void ClassicMovie::display() const 
 {
@@ -99,8 +100,8 @@ void ClassicMovie::display() const
 		<< actorFirst << " " << actorLast << endl;
 }
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
+// --------------------- displayHeader() -------------------------------------------
+// Helper function to display the column headers for movies
 // Preconditions: none
 // Postconditions: none
 // -----------------------------------------------------------------------------
@@ -113,10 +114,10 @@ void ClassicMovie::displayHeader() const
 		<< endl;
 }
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- operator== -------------------------------------------
+// Comparison operator to compare movies
+// Preconditions: inventory built
+// Postconditions: boolean result of equal (true) or not (false)
 // -----------------------------------------------------------------------------
 bool ClassicMovie::operator==(const Inventory& inv) const 
 {
@@ -128,10 +129,10 @@ bool ClassicMovie::operator==(const Inventory& inv) const
 		actorLast == aClassic.actorLast);
 }
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- operator< -------------------------------------------
+// Comparison operator to determine sorting
+// Preconditions: inventory built
+// Postconditions: boolean result of less than (true) or greater than (false)
 // -----------------------------------------------------------------------------
 bool ClassicMovie::operator<(const Inventory& inv) const
 {
@@ -157,10 +158,10 @@ bool ClassicMovie::operator<(const Inventory& inv) const
 		return false;
 }
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
+// --------------------- create() -------------------------------------------
+// Create a classic movie object
 // Preconditions: none
-// Postconditions: none
+// Postconditions: classic movie object created
 // -----------------------------------------------------------------------------
 Inventory * ClassicMovie::create() 
 {
