@@ -18,6 +18,28 @@ using namespace std;
 class Movie : public Inventory 
 {
 public:
+    
+	Movie();	
+	Movie(const Movie& );
+	~Movie();	
+
+	virtual void display() const; //display movie
+	virtual void displayHeader() const = 0; //header for display function
+	virtual void setData(istream& infile); //read in data
+    virtual void setData2(istream&) = 0; //pure virtual version of setData
+
+	virtual string getItem() const;	//retrieve item
+	string getDirector(); //retrieve director
+	string getTitle();	//retrive title
+	int getYear();	//retrive year
+
+    //pure virtual comparison operators
+	virtual bool operator==(const Inventory&) const = 0;
+	virtual bool operator<(const Inventory&) const = 0;
+    
+    
+	virtual Inventory* create() = 0;
+=======
 	Movie();									// Constructor
 	Movie(const Movie& );						// Copy constructor
 	~Movie();									// Destructor
@@ -37,6 +59,7 @@ public:
 	virtual bool operator==(const Inventory&) const = 0;
 	virtual bool operator<(const Inventory&) const = 0;
 	virtual Inventory* create() = 0;			
+>>>>>>> 05b95f0d9b27007d07b9f2f806f7b7335c4f52f8
 
 protected:
 	string title;			// Movie title

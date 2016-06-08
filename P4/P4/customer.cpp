@@ -41,7 +41,7 @@ Customer::Customer(const Customer& cust)
 	lastName = cust.lastName;
 }
 
-// --------------------- Inventory() -------------------------------------------
+// --------------------- ~Customer() -------------------------------------------
 // Destructor
 // Preconditions: none
 // Postconditions: none
