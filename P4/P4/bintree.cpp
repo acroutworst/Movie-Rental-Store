@@ -1,188 +1,204 @@
-
-/**-----------------------------------------------------------------------* 
- * 	@file bintree.cpp
- *	@author Terence Schumacher
- *	lab4
---------------------------------------------------------------------------*/
-
+// ------------------------------------------------ bintree.cpp -------------------------------------------------------
+// Adam Croutworst, Shane Gardner CSS343A
+// 06/03/16
+// 06/08/16
+// --------------------------------------------------------------------------------------------------------------------
+// Binary Tree - This class will organize movies (comedy, classic, drama) so that the movies are organized
+//				 by title, month/year, director, and actor first/last name.
+// --------------------------------------------------------------------------------------------------------------------
 
 #include "bintree.h"
-//----------------------------------------------------------------------------
-// Constructor
-// enpty constructor
-//
-BinTree::BinTree() : root(NULL) {
-}//end constructor
 
-//----------------------------------------------------------------------------
-// Copy Constructor
-// unimplementented copy constructor, used to copy a complete inventory 
-// @param rightSide the tree building from
-//
-BinTree::BinTree(const BinTree& rightSide){} //end copy constructor
+// --------------------- BinTree() -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
+BinTree::BinTree() : root(NULL)
+{
+}
 
-//----------------------------------------------------------------------------
+// --------------------- BinTree() -------------------------------------------
+// Copy constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
+BinTree::BinTree(const BinTree& tree) 
+{
+}
+
+// --------------------- BinTree() -------------------------------------------
 // Destructor
-// used in memeory management of inventory items and binary tree
-//
-BinTree::~BinTree(){
+// Preconditions: Tree with one or more nodes
+// Postconditions: A tree with nullified nodes
+// -----------------------------------------------------------------------------
+BinTree::~BinTree() 
+{
 	if (root != NULL)
 		makeEmpty();
-} //end destructor
+} 
 
-//----------------------------------------------------------------------------
-// Insert
-// Inserts movie item inside of the tree as well as sets the number of copies
-// the item inserted has
-// @param insertMovie inventory item inserted
-// @param copiesIn number of stock for inserted item
-//
-bool BinTree::insert(Inventory* insertMovie, const int copiesIn) {
-	Node* ptr = new Node();    
-	ptr->movie = insertMovie; //Link to current NodeData
-	ptr->movie->setMaxCopies(copiesIn);
-	insertMovie = NULL; //Disconnect
-	ptr->left = ptr->right = NULL;
-	if (isEmpty())
+// --------------------- Is Empty -------------------------------------------
+// isEmpty: Check if tree is empty
+// Preconditions: none
+// Postconditions: Boolean indicating if tree is NULL 
+// -----------------------------------------------------------------------------
+bool BinTree::isEmpty() const
+{
+	return (root == NULL);
+}
+
+// --------------------- Make Empty -------------------------------------------
+// makeEmpty: make the tree empty
+// Preconditions: A binary tree
+// Postconditions: Method call to helper
+// -----------------------------------------------------------------------------
+void BinTree::makeEmpty()
+{
+	destroyTree(root);
+}
+
+// --------------------- Inventory() -------------------------------------------
+// destroyTree: postorder removal of nodes
+// Preconditions: A node to remove
+// Postconditions: An empty tree
+// -----------------------------------------------------------------------------
+void BinTree::destroyTree(Node*& tree)
+{
+	if (tree != NULL)
 	{
-		root = ptr; //Empty, set as root
+		destroyTree(tree->left);
+		destroyTree(tree->right);
+
+		delete tree->movie; 
+		tree->movie = NULL;
+		delete tree; 
+		tree = NULL;
+	}
+}
+
+// --------------------- Insert -------------------------------------------
+// insert: Insert a node
+// Preconditions: Insert node and amount of copies
+// Postconditions: An updated tree with inserted movie node
+// -----------------------------------------------------------------------------
+bool BinTree::insert(Inventory* insertMovie, const int copiesIn) 
+{
+	
+	Node* treePtr = new Node();
+
+	treePtr->movie = insertMovie;			// Assign insertMovie node
+	treePtr->movie->setMaxCopies(copiesIn); // Set max copies
+
+	insertMovie = NULL;						// Set insert node to NULL
+	treePtr->left = treePtr->right = NULL;	// Set right child of tree to NULL
+
+	if (isEmpty())							// Check if tree is NULL
+	{
+		root = treePtr; 
 	}
 	else
 	{
-		Node* current = root;
+		Node* curr = root;				// Assign root to current 
 		bool inserted = false;
 
-		// if data is less than current data, insert in left subtree,
-		// otherwise insert in right subtree
-		while (!inserted)
+
+		while (!inserted)								// While it's not inserted, traverse
 		{
-			if (*ptr->movie == *current->movie) //Duplicate, dont insert
+			if (*treePtr->movie == *curr->movie)		// If they are equivalent, erase new pointer
 			{
-				delete ptr; 
-				ptr = NULL;
+				delete treePtr;
+				treePtr = NULL;
 				return false;
 			}
-			else if (*ptr->movie < *current->movie)
+			else if (*treePtr->movie < *curr->movie)	// If current is more than tree, insert in left child   
 			{
-				if (current->left == NULL) 
+				if (curr->left == NULL)
 				{
-					current->left = ptr;
+					curr->left = treePtr;
 					inserted = true;
 				}
 				else
-					current = current->left;               
-			}
-			else {
-				if (current->right == NULL) 
+					curr = curr->left;
+			} else {									// Else assign to right child
+				if (curr->right == NULL)
 				{
-					current->right = ptr;
+					curr->right = treePtr;
 					inserted = true;
 				}
 				else
-					current = current->right;              
+					curr = curr->right;
 			}
 		}
 	}
+
 	return true;
-} //end insert
+} 
 
-//----------------------------------------------------------------------------
-// is Empty
-// Checks whether the root is empty or not
-// @return true if root NULL, false otherwise
-//
-bool BinTree::isEmpty() const {
-	return (root == NULL); 
-} //end isEmpty
+// --------------------- Inventory() -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
+bool BinTree::retrieve(const Inventory& data, Inventory*& found) const 
+{
+	retrieveHelper(root, data, found);
 
-//----------------------------------------------------------------------------
-// Make Empty 
-// calls private method destroyTree() to clear all tree data
-//
-void BinTree::makeEmpty() { 
-	destroyTree(root); 
-} //end makeEmpty
-
-//----------------------------------------------------------------------------
-// DestroyTree
-// postorder deletion of nodes in the tree
-// @param tree current node passed into recursive function
-//
-void BinTree::destroyTree(Node*& tree){
-	if (tree != NULL){
-		destroyTree(tree->left); //destroy left
-		destroyTree(tree->right); //destroy right
-
-		delete tree->movie; //delete NodeData
-		tree->movie = NULL;
-		delete tree; //Delete Node
-		tree = NULL;
-	}
-} //end destroyTree
-
-//----------------------------------------------------------------------------
-// Retrieve
-// Locates an item within the tree by storing it in a node data item
-// @param dataItem item searching for
-// @param dataFound return item, NULL if not found
-// @return true if dataFound not NULL, false otherwise
-//
-bool BinTree::retrieve(const Inventory& dataItem, Inventory*& dataFound) 
-														const {
-	retrieveHelper(root, dataItem, dataFound);
-
-	if (dataFound != NULL)
+	if (found != NULL)
 		return true;
 	else
 		return false;
-} // end retireve
+} 
 
-//----------------------------------------------------------------------------
-// RetrieveHelper
-// Recursive function called privately by retrieve aiding the search for data
-// Item within tree
-// @param curPtr current location in tree
-// @param dataItem item searching for
-// @param dataFound return item, NULL if not found
-//
-void BinTree::retrieveHelper(Node* curPtr, const Inventory & dataItem, 
-								Inventory*& dataFound) const {
-	if (curPtr == NULL)
-		dataFound = NULL;
-	else if (dataItem == *curPtr->movie){
-		dataFound = curPtr->movie;
+// --------------------- Inventory() -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
+void BinTree::retrieveHelper(Node* curr, const Inventory & data, Inventory*& found) const 
+{
+	if (curr == NULL)
+		found = NULL;
+	else if (data == *curr->movie)
+	{
+		found = curr->movie;
 	}
-	else if (dataItem < *curPtr->movie)
-		retrieveHelper(curPtr->left, dataItem, dataFound);
+	else if (data < *curr->movie)
+		retrieveHelper(curr->left, data, found);
 	else
-		retrieveHelper(curPtr->right, dataItem, dataFound);
-}//end retrieveHelper
+		retrieveHelper(curr->right, data, found);
+}
 
-//----------------------------------------------------------------------------
-// In-Order Display
-// Displays all items in tree from lowest presidence to highest
-// @param current current location within tree
-//
-void BinTree::inorderDisplay(Node * current) const{
-	if (current == root){
-		current->movie->displayHeader();
-	}//end if 
+// --------------------- Inventory() -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
+void BinTree::inorderDisplay(Node * curr) const
+{
+	if (curr == root) 
+	{
+		curr->movie->displayHeader();
+	}
 
-	if (current != NULL){
-		inorderDisplay(current->left);
+	if (curr != NULL) 
+	{
+		inorderDisplay(curr->left);
 
-		cout << right << setw(2) << current->movie->getAmountIn() << "  " <<
-			left << setw(3) << current->movie->getAmountOut() << " ";
-		current->movie->display();
+		cout << right << setw(2) << curr->movie->stockIn() << "  " <<
+			left << setw(3) << curr->movie->stockOut() << " ";
+		curr->movie->display();
 
-		inorderDisplay(current->right);
-	}//end if 
-}//end inorderDisplay
+		inorderDisplay(curr->right);
+	}
+}
 
-//----------------------------------------------------------------------------
-// Get Root
-// Returns the root 
-// @return root of tree
-//
-BinTree::Node * BinTree::getRoot() const { return this->root; }//end getRoot
-
+ // --------------------- Inventory() -------------------------------------------
+ // Default constructor
+ // Preconditions: none
+ // Postconditions: none
+ // -----------------------------------------------------------------------------
+BinTree::Node * BinTree::getRoot() const 
+{ 
+	return this->root; 
+}

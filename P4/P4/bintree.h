@@ -1,58 +1,53 @@
+// ------------------------------------------------ bintree.h ---------------------------------------------------------
+// Adam Croutworst, Shane Gardner CSS343A
+// 06/03/16
+// 06/08/16
+// --------------------------------------------------------------------------------------------------------------------
+// Binary Tree - This class will organize movies (comedy, classic, drama) so that the movies are organized
+//				 by title, month/year, director, and actor first/last name.
+// --------------------------------------------------------------------------------------------------------------------
 
 #ifndef BINTREE_H
 #define BINTREE_H
+
 #include "movie.h"
-struct Node;
+#include "inventory.h"
+#include <iostream>
+#include <iomanip>
 
-//----------------------------------------------------------------------------
-// Class: BinTree
-//
-//----------------------------------------------------------------------------
-// 
-//
-
-//Struct holds pointers to data and left/right ancestors
-struct Node
-{
-	Inventory* movie; //Pointer to Item
-	Node* left, *right; //Left/Right child pointers 
-};
+using namespace std;
 
 class BinTree
 {
-	//Overloaded << operator
-	//Displays contents of entire BST inorder
-	friend ostream& operator<<(ostream& output, BinTree& tree);
-	struct Node;
+	friend ostream& operator<<(ostream& output, BinTree& tree); // Overloaded output stream 
+	struct Node;												// Reference to the node structure
 
 public:
+	BinTree();													// Constructor
+	BinTree(const BinTree&);									// Copy constructor
+	~BinTree();													// Destructor
 
+	bool insert(Inventory* insertMovie, const int copiesIn);	// Insert node
+	bool isEmpty() const;										// Check if tree is empty
+	void makeEmpty();											// Remove all contents of tree
+	bool retrieve(const Inventory& data, Inventory*& found) const;	// Retrieve value from tree
+	void inorderDisplay(Node * curr) const;					// Display in-order traversal
+	Node * getRoot() const;										// Get root
 
-	BinTree();
-	BinTree(const BinTree&); // copy constructor
-	~BinTree();
+	// Helpers
+	void retrieveHelper(Node* curr, const Inventory & data, Inventory*& found) const; // Helper for retrieve
 
-	//Functions used to modify BST
-	bool insert(Inventory* insertMovie, const int copiesIn);
-	bool isEmpty() const;// true if tree is empty, otherwise false
-	void makeEmpty(); // make the tree empty so isEmpty returns true 
-	bool retrieve(const Inventory& dataItem, Inventory*& dataFound) const;
-	void retrieveHelper(Node* curPtr, 
-		const Inventory & dataItem, Inventory*& dataFound) const;
-	void inorderDisplay(Node * current) const;
-	Node * getRoot() const;//end getRoot
 private:
-	//Struct holds pointers to data and left/right ancestors
+
 	struct Node
 	{
-		Inventory* movie; //Pointer to Item
-		Node* left, *right; //Left/Right child pointers 
+		Inventory* movie;							// Inventory item pointer
+		Node* left, *right;							// Left / right pointers  
 	};
-	Node *root; // root of the tree
+	Node *root;										// Root node
 
-	// utility functions
-	void inOrderDisplayHelper(Node* current) const;
-	//bool isEqual(Node*, Node*) const; //Checks if two nodes equal
-	void destroyTree(Node*& tree);
+	// Helpers
+	void inOrderDisplayHelper(Node* curr) const;    // Helper for display
+	void destroyTree(Node*& tree);					// Helper for makeEmpty
 };
 #endif
