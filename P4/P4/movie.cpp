@@ -73,7 +73,7 @@ void Movie::setData(istream& infile)
 // -----------------------------------------------------------------------------
 void Movie::displayHeader() const 
 {
-	cout << " ****** MOVIE ITEM ***** " << endl;
+	cout << " ------ MOVIE ITEM ------ " << endl;
 }
 
 // --------------------- Get Item -----------------------------------------------

@@ -57,7 +57,7 @@ void ComedyMovie::display() const
 // -----------------------------------------------------------------------------
 void ComedyMovie::displayHeader() const
 {
-	cout << "IN/OUT *TITLE*                *DIRECTOR*         *YEAR*  "
+	cout << "IN/OUT  TITLE                  DIRECTOR           YEAR  "
 		<< endl;
 	cout <<
 		"---------------------------------------------------------------------"

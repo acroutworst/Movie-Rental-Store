@@ -260,7 +260,7 @@ void StoreManager::processTransactions(istream& infile)
 
 								if (found == false)				// If movie not found,
 								{
-									cout << "ERROR: Invalid Movie Request!" << tempItem->getItem() << endl; // Print error message
+									cout << "Error: Invalid Movie Request" << tempItem->getItem() << endl; // Print error message
 								}
 
 								delete tempItem;				// delete item and set to null
@@ -276,7 +276,7 @@ void StoreManager::processTransactions(istream& infile)
 								delete processedTran;	// Delete processed transaction and set to null
 								processedTran = NULL;
 							} else {
-								cout << "ERROR: " << movCh << " not Found!" << endl; // If empty, show not found message
+								cout << "Error: " << movCh << " not Found" << endl; // If empty, show not found message
 
 								if (processedTran != NULL)
 									delete processedTran;
@@ -294,7 +294,7 @@ void StoreManager::processTransactions(istream& infile)
 							string temp;
 							getline(infile, temp, EOL);
 
-							cout << "ERROR: Invalid Code " << medCh << endl; 
+							cout << "Error: Invalid Code " << medCh << endl; 
 
 							if (processedTran != NULL)
 								delete processedTran;
@@ -316,7 +316,7 @@ void StoreManager::processTransactions(istream& infile)
 					getline(infile, temp, EOL);
 				}
 			} else {
-				cout << "ERROR: Invalid Action Code " << actCh << endl;
+				cout << "Error: Invalid Action Code " << actCh << endl;
 
 				if (processedTran != NULL)
 					delete processedTran;

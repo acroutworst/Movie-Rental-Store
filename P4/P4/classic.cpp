@@ -103,8 +103,8 @@ void ClassicMovie::display() const
 // Helper function to display the column headers for movies
 void ClassicMovie::displayHeader() const
 {
-	cout << "IN/OUT *TITLE*                *DIRECTOR*         *MO**YEAR* " <<
-		"*ACTOR* " << endl;
+	cout << "IN/OUT  TITLE                  DIRECTOR           MO /YEAR " <<
+		" ACTOR " << endl;
 	cout <<
 		"---------------------------------------------------------------------"
 		<< endl;

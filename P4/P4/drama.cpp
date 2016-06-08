@@ -43,7 +43,8 @@ DramaMovie::~DramaMovie()
 // Preconditions: none
 // Postconditions: none
 // -----------------------------------------------------------------------------
-void DramaMovie::display() const {
+void DramaMovie::display() const
+{
 	cout << left << setw(22) << title << " "
 		<< setw(18) << director << " "
 		<< setw(5) << year << endl;
@@ -56,7 +57,7 @@ void DramaMovie::display() const {
 // -----------------------------------------------------------------------------
 void DramaMovie::displayHeader() const 
 {
-	cout << "IN/OUT *TITLE*                *DIRECTOR*         *YEAR*  " << endl;
+	cout << "IN/OUT  TITLE                  DIRECTOR           YEAR  " << endl;
 	cout << "---------------------------------------------------------------------" << endl;
 }
 
