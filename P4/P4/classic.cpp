@@ -10,26 +10,46 @@
 #include "classic.h"
 
 
+// --------------------- ClassicMovie() -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: Nullified actor first and last names, month, 
+//					and genre is default as Classic
+// -----------------------------------------------------------------------------
 ClassicMovie::ClassicMovie() 
-	: Movie(), actorFName(""), actorLName(""), month(0), GENRE("CLASSIC") 
+	: Movie(), actorFirst(""), actorLast(""), month(0), GENRE("CLASSIC") 
 {
 }
 
+// --------------------- ClassicMovie() -------------------------------------------
+// Copy constructor
+// Preconditions: classic movie object
+// Postconditions: A copied object of the classic movie
+// -----------------------------------------------------------------------------
 ClassicMovie::ClassicMovie(const ClassicMovie& classic) 
 {
 	director = classic.director;
 	title = classic.title;
-	actorFName = classic.actorFName;
-	actorLName = classic.actorLName;
+	actorFirst = classic.actorFirst;
+	actorLast = classic.actorLast;
 	month = classic.month;
 	year = classic.year;
 }
 
- 
+// --------------------- ClassicMovie() -------------------------------------------
+// Destructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
 ClassicMovie::~ClassicMovie()
 {
 }
 
+// --------------------- Set Dat -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
 void ClassicMovie::setData(istream& infile) 
 {
 	infile.get();
@@ -47,28 +67,43 @@ void ClassicMovie::setData(istream& infile)
 	}
 
 	infile.get();
-	infile >> actorFName >> actorLName;
+	infile >> actorFirst >> actorLast;
 	infile >> month >> year;
 }
 
+// --------------------- Inventory() -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
 void ClassicMovie::setDataTwice(istream& infile) 
 {
 	infile >> month;
 	infile >> year;
-	infile >> actorFName;
-	infile >> actorLName;
+	infile >> actorFirst;
+	infile >> actorLast;
 
 }
 
+// --------------------- Inventory() -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
 void ClassicMovie::display() const 
 {
 	cout << left << setw(22) << title << " "
 		<< setw(18) << director << " "
 		<< setw(3) << month << " "
 		<< setw(5) << year << " "
-		<< actorFName << " " << actorLName << endl;
+		<< actorFirst << " " << actorLast << endl;
 }
 
+// --------------------- Inventory() -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
 void ClassicMovie::displayHeader() const
 {
 	cout << "IN/OUT *TITLE*                *DIRECTOR*         *MO**YEAR* " <<
@@ -78,16 +113,26 @@ void ClassicMovie::displayHeader() const
 		<< endl;
 }
 
+// --------------------- Inventory() -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
 bool ClassicMovie::operator==(const Inventory& inv) const 
 {
 
 	const ClassicMovie& aClassic = static_cast<const ClassicMovie&>(inv);
 
 	return (year == aClassic.year && month == aClassic.month
-		&& actorFName == aClassic.actorFName &&
-		actorLName == aClassic.actorLName);
+		&& actorFirst == aClassic.actorFirst &&
+		actorLast == aClassic.actorLast);
 }
 
+// --------------------- Inventory() -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
 bool ClassicMovie::operator<(const Inventory& inv) const
 {
 	const ClassicMovie& aClassic = static_cast<const ClassicMovie&>
@@ -97,13 +142,13 @@ bool ClassicMovie::operator<(const Inventory& inv) const
 		return true;
 	else if (year == aClassic.year)
 	{
-		if (actorFName < aClassic.actorFName)
+		if (actorFirst < aClassic.actorFirst)
 		{
 			return true;
 		}
-		else if (actorFName == aClassic.actorFName)
+		else if (actorFirst == aClassic.actorFirst)
 		{
-			return (actorLName < aClassic.actorLName);
+			return (actorLast < aClassic.actorLast);
 		}
 		else
 			return false;
@@ -112,6 +157,11 @@ bool ClassicMovie::operator<(const Inventory& inv) const
 		return false;
 }
 
+// --------------------- Inventory() -------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
 Inventory * ClassicMovie::create() 
 {
 	return new ClassicMovie();

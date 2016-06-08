@@ -17,22 +17,25 @@
 class ClassicMovie : public Movie 
 {
 public:
-	ClassicMovie();
-	ClassicMovie(const ClassicMovie& );
-	~ClassicMovie();
+	ClassicMovie();							// Constructor
+	ClassicMovie(const ClassicMovie& );		// Copy constructor
+	~ClassicMovie();						// Destructor
 
-	void setData(istream& infile);
-	virtual void setDataTwice(istream& infile);
-	void display() const;
+	void setData(istream& infile);			// Set inventory data
+	virtual void setDataTwice(istream& infile); // Set additional inventory data
+	
+	void display() const;					// Display classic movies
 	virtual void displayHeader() const;
+
+	// Inherited funtions
 	virtual bool operator==(const Inventory& ) const;
 	virtual bool operator<(const Inventory& ) const;
 	virtual Inventory * create();
 
 private:
-	string actorFName, actorLName;
-	int month;
-	const string GENRE;
+	string actorFirst, actorLast;			// Actor first and last name
+	int month;								// Month of classic release
+	const string GENRE;						// Genre of classic movie
 };
 
 

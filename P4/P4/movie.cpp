@@ -9,11 +9,20 @@
 
 #include "movie.h"
 
-
+// --------------------- Movie() -----------------------------------------------
+// Default constructor
+// Preconditions: none
+// Postconditions: Null for title, director, and year
+// -----------------------------------------------------------------------------
 Movie::Movie() : Inventory(), title(""), director(""), year(0) 
 {
 }
 
+// --------------------- Movie() -----------------------------------------------
+// Copy constructor
+// Preconditions: Constant reference to movie object
+// Postconditions: Set title, director, and year released of movie
+// -----------------------------------------------------------------------------
 Movie::Movie(const Movie& movie) 
 {
 	title = movie.title;
@@ -21,50 +30,88 @@ Movie::Movie(const Movie& movie)
 	year = movie.year;
 }
 
+// --------------------- ~Movie() -------------------------------------------
+// Destructor
+// Preconditions: none
+// Postconditions: none
+// -----------------------------------------------------------------------------
 Movie::~Movie()
 {
 }
 
+// --------------------- Display -------------------------------------------
+// Display: display the contents of the movie
+// Preconditions: Movie title, director, and year
+// Postconditions: An output with the title then director then year
+// -----------------------------------------------------------------------------
 void Movie::display() const
 {
-	cout << title << " " << director
-		<< " "
-		<< year
-		<< endl;
+	cout << title << " " << director << " " << year << endl;
 }
 
+// --------------------- Set Data -------------------------------------------
+// setData: Read in the file of data
+// Preconditions: Movie file data
+// Postconditions: A string of director, title, and year
+// -----------------------------------------------------------------------------
 void Movie::setData(istream& infile) 
 {
-	infile.get();
-	getline(infile, director, ',');
+	infile.get();					
+	getline(infile, director, ',');	// Read line of file
 
 	infile.get();
-	getline(infile, title, ',');
+	getline(infile, title, ',');    // Read line of file
 
 	infile.get();
-	infile >> year;
+	infile >> year;					// Read year of file
 }
 
+// --------------------- Display Header -------------------------------------------
+// displayHeader: Display header for Movie section
+// Preconditions: none
+// Postconditions: String containing header
+// -----------------------------------------------------------------------------
 void Movie::displayHeader() const 
 {
-	cout << " ****** MOVIE ITEM ***** "
-		<< endl;
+	cout << " ****** MOVIE ITEM ***** " << endl;
 }
 
+// --------------------- Get Item -----------------------------------------------
+// getItem: get inventory item
+// Preconditions: none
+// Postconditions: an immutable Inventory item
+// -----------------------------------------------------------------------------
 string Movie::getItem() const 
 {
 	return title;
 }
 
+// --------------------- Get Director -----------------------------------------------
+// getDirector: get director of movie
+// Preconditions: none
+// Postconditions: string containing director name
+// -----------------------------------------------------------------------------
 string Movie::getDirector()
 {
 	return director;
 } 
 
-string Movie::getTitle() {
+// --------------------- Get Title -----------------------------------------------
+// getTitle: get title of movie
+// Preconditions: none
+// Postconditions: string containing title name
+// -----------------------------------------------------------------------------
+string Movie::getTitle() 
+{
 	return title;
 }
 
-int Movie::getYear() {
+// --------------------- Get Year -----------------------------------------------
+// getYear: get release of movie
+// Preconditions: none
+// Postconditions: Return int of released year
+// -----------------------------------------------------------------------------
+int Movie::getYear() 
+{
 	return year;
 }

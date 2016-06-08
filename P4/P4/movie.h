@@ -6,8 +6,8 @@
 // Movie - This class is used as a base class to derive comedy, drama, and classic movies. 
 // The inventory keeps track of the types of movies and its inventory>
 // --------------------------------------------------------------------------------------------------------------------
-#ifndef _MOVIE_H_
-#define _MOVIE_H_
+#ifndef MOVIE_H
+#define MOVIE_H
 
 #include "inventory.h"
 #include <iostream>
@@ -18,28 +18,30 @@ using namespace std;
 class Movie : public Inventory 
 {
 public:
-	Movie();	
-	Movie(const Movie& );
-	~Movie();	
+	Movie();									// Constructor
+	Movie(const Movie& );						// Copy constructor
+	~Movie();									// Destructor
 
-	virtual void display() const;
-	virtual void displayHeader() const = 0;
-	virtual void setData(istream& infile);
-	virtual void setData2(istream&) = 0;	
+	// Inherited functions
+	virtual void display() const;				// Pure virtual for display 
+	virtual void displayHeader() const = 0;		
+	virtual void setData(istream& infile);		// Set inventory data
+	virtual void setDataTwice(istream&) = 0;	// Set additional inventory data
+	virtual string getItem() const;				// Return the inventory item
 
-	virtual string getItem() const;	
-	string getDirector();
-	string getTitle();	
-	int getYear();		
+	string getDirector();						// Return director
+	string getTitle();							// Return title
+	int getYear();								// Return year
 
+	// Inherited operator overloads
 	virtual bool operator==(const Inventory&) const = 0;
 	virtual bool operator<(const Inventory&) const = 0;
-	virtual Inventory* create() = 0;
+	virtual Inventory* create() = 0;			
 
 protected:
-	string title;		
-	string director;	
-	int year;			
+	string title;			// Movie title
+	string director;		// Movie director
+	int year;				// Released year of movie
 						
 
 };
