@@ -14,6 +14,13 @@
 		CE17B7311D0671D20058AB13 /* movie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B7301D0671D20058AB13 /* movie.cpp */; };
 		CE17B7371D07D9B00058AB13 /* bintree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B7331D07D9B00058AB13 /* bintree.cpp */; };
 		CE17B7381D07D9B00058AB13 /* hash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B7351D07D9B00058AB13 /* hash.cpp */; };
+		CE17B7471D085F510058AB13 /* borrow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B7391D085F510058AB13 /* borrow.cpp */; };
+		CE17B7481D085F510058AB13 /* comedy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B73B1D085F510058AB13 /* comedy.cpp */; };
+		CE17B7491D085F510058AB13 /* drama.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B73D1D085F510058AB13 /* drama.cpp */; };
+		CE17B74A1D085F510058AB13 /* history.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B73F1D085F510058AB13 /* history.cpp */; };
+		CE17B74B1D085F510058AB13 /* returnMovie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B7411D085F510058AB13 /* returnMovie.cpp */; };
+		CE17B74C1D085F510058AB13 /* storemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B7431D085F510058AB13 /* storemanager.cpp */; };
+		CE17B74D1D085F510058AB13 /* transaction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE17B7451D085F510058AB13 /* transaction.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +50,20 @@
 		CE17B7341D07D9B00058AB13 /* bintree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bintree.h; sourceTree = "<group>"; };
 		CE17B7351D07D9B00058AB13 /* hash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hash.cpp; sourceTree = "<group>"; };
 		CE17B7361D07D9B00058AB13 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
+		CE17B7391D085F510058AB13 /* borrow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = borrow.cpp; sourceTree = "<group>"; };
+		CE17B73A1D085F510058AB13 /* borrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = borrow.h; sourceTree = "<group>"; };
+		CE17B73B1D085F510058AB13 /* comedy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = comedy.cpp; sourceTree = "<group>"; };
+		CE17B73C1D085F510058AB13 /* comedy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comedy.h; sourceTree = "<group>"; };
+		CE17B73D1D085F510058AB13 /* drama.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drama.cpp; sourceTree = "<group>"; };
+		CE17B73E1D085F510058AB13 /* drama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drama.h; sourceTree = "<group>"; };
+		CE17B73F1D085F510058AB13 /* history.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = history.cpp; sourceTree = "<group>"; };
+		CE17B7401D085F510058AB13 /* history.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = history.h; sourceTree = "<group>"; };
+		CE17B7411D085F510058AB13 /* returnMovie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = returnMovie.cpp; sourceTree = "<group>"; };
+		CE17B7421D085F510058AB13 /* returnMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = returnMovie.h; sourceTree = "<group>"; };
+		CE17B7431D085F510058AB13 /* storemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = storemanager.cpp; sourceTree = "<group>"; };
+		CE17B7441D085F510058AB13 /* storemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = storemanager.h; sourceTree = "<group>"; };
+		CE17B7451D085F510058AB13 /* transaction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = transaction.cpp; sourceTree = "<group>"; };
+		CE17B7461D085F510058AB13 /* transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = transaction.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +96,20 @@
 		CE17B71F1D020D410058AB13 /* P4 */ = {
 			isa = PBXGroup;
 			children = (
+				CE17B7391D085F510058AB13 /* borrow.cpp */,
+				CE17B73A1D085F510058AB13 /* borrow.h */,
+				CE17B73B1D085F510058AB13 /* comedy.cpp */,
+				CE17B73C1D085F510058AB13 /* comedy.h */,
+				CE17B73D1D085F510058AB13 /* drama.cpp */,
+				CE17B73E1D085F510058AB13 /* drama.h */,
+				CE17B73F1D085F510058AB13 /* history.cpp */,
+				CE17B7401D085F510058AB13 /* history.h */,
+				CE17B7411D085F510058AB13 /* returnMovie.cpp */,
+				CE17B7421D085F510058AB13 /* returnMovie.h */,
+				CE17B7431D085F510058AB13 /* storemanager.cpp */,
+				CE17B7441D085F510058AB13 /* storemanager.h */,
+				CE17B7451D085F510058AB13 /* transaction.cpp */,
+				CE17B7461D085F510058AB13 /* transaction.h */,
 				CE17B7331D07D9B00058AB13 /* bintree.cpp */,
 				CE17B7341D07D9B00058AB13 /* bintree.h */,
 				CE17B7351D07D9B00058AB13 /* hash.cpp */,
@@ -148,12 +183,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE17B7481D085F510058AB13 /* comedy.cpp in Sources */,
+				CE17B7491D085F510058AB13 /* drama.cpp in Sources */,
+				CE17B74C1D085F510058AB13 /* storemanager.cpp in Sources */,
+				CE17B74A1D085F510058AB13 /* history.cpp in Sources */,
+				CE17B74D1D085F510058AB13 /* transaction.cpp in Sources */,
 				CE17B7211D020D410058AB13 /* main.cpp in Sources */,
+				CE17B74B1D085F510058AB13 /* returnMovie.cpp in Sources */,
 				CE17B7291D020EC70058AB13 /* customer.cpp in Sources */,
 				CE17B72E1D0671C50058AB13 /* classic.cpp in Sources */,
 				CE17B72C1D0213B90058AB13 /* inventory.cpp in Sources */,
 				CE17B7381D07D9B00058AB13 /* hash.cpp in Sources */,
 				CE17B7311D0671D20058AB13 /* movie.cpp in Sources */,
+				CE17B7471D085F510058AB13 /* borrow.cpp in Sources */,
 				CE17B7371D07D9B00058AB13 /* bintree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

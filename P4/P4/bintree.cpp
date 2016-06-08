@@ -27,7 +27,7 @@ BinTree::BinTree(const BinTree& tree)
 {
 }
 
-// --------------------- BinTree() -------------------------------------------
+// --------------------- ~BinTree() -------------------------------------------
 // Destructor
 // Preconditions: Tree with one or more nodes
 // Postconditions: A tree with nullified nodes
@@ -76,7 +76,7 @@ void BinTree::destroyTree(Node*& tree)
 		tree = NULL;
 	}
 }
-
+ 
 // --------------------- Insert -------------------------------------------
 // insert: Insert a node
 // Preconditions: Insert node and amount of copies

@@ -75,7 +75,7 @@ void Customer::setData(istream& infile)
 // -----------------------------------------------------------------------------
 void Customer::displayCustomerHistory() const
 {
-	cout << " **** Customer: " << id << " " << lastName << ", " << firstName << endl;
+	cout << " ---- Customer: " << id << " " << lastName << ", " << firstName << endl;
 	int size = transactionHistory.size();
 
 	if (size > 0)

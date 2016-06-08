@@ -26,7 +26,7 @@ public:
 	virtual void display() const; //display movie
 	virtual void displayHeader() const = 0; //header for display function
 	virtual void setData(istream& infile); //read in data
-    virtual void setData2(istream&) = 0; //pure virtual version of setData
+    virtual void setDataTwice(istream&) = 0; //pure virtual version of setData
 
 	virtual string getItem() const;	//retrieve item
 	string getDirector(); //retrieve director
@@ -37,6 +37,8 @@ public:
 	virtual bool operator==(const Inventory&) const = 0;
 	virtual bool operator<(const Inventory&) const = 0;
     
+	virtual Inventory* create() = 0;
+
 protected:
 	string title;			// Movie title
 	string director;		// Movie director

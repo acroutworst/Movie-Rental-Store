@@ -1,4 +1,4 @@
-// ------------------------------------------------ hash.h ---------------------------------------------------------
+// ------------------------------------------------ hash.cpp ---------------------------------------------------------
 // Adam Croutworst, Shane Gardner CSS343A
 // 06/03/16
 // 06/08/16
@@ -83,7 +83,7 @@ string Hash::getMediaType(char ch)
 	return mediaType[hash(ch)];		// Return media type
 }
 
-// --------------------- Create Movie() -------------------------------------------
+// --------------------- Create Movie -------------------------------------------
 // Create movie in inventory
 // Preconditions: valid input movie file and character
 // Postconditions: Inventory item
@@ -103,7 +103,7 @@ Inventory * Hash::createMovie(char ch, istream& infile)
 	}
 }
 
-// --------------------- Create Transaction() -------------------------------------------
+// --------------------- Create Transaction -------------------------------------------
 // Create transaction item
 // Preconditions: valid file and char value
 // Postconditions: transaction generated

@@ -45,18 +45,10 @@ ClassicMovie::~ClassicMovie()
 {
 }
 
-<<<<<<< HEAD
 // --------------------- setData() -------------------------------------------
 // Read in data from movie file
 // Preconditions: file with info, valid and invalid
 // Postconditions: movies will be read in and invalid data will not be kept
-=======
-// --------------------- Set Data -------------------------------------------
-// setData: Set inventory data
-// Preconditions: An input stream from movie file
-// Postconditions: A string of actor first/last names
-//				   and release month and year
->>>>>>> ae0cff8c539ddb566a4f3b4018da488fc3a0b534
 // -----------------------------------------------------------------------------
 void ClassicMovie::setData(istream& infile) 
 {
@@ -79,18 +71,11 @@ void ClassicMovie::setData(istream& infile)
 	infile >> month >> year;
 }
 
-<<<<<<< HEAD
+
 // --------------------- setDataTwice() -------------------------------------------
 // Safety function to help read in data
 // Preconditions: file with info, valid and invalid
 // Postconditions: movies will be read in and invalid data will not be kept
-=======
-// --------------------- Set Data -------------------------------------------
-// setDataTwice: Set additional inventory data
-// Preconditions: Input file stream
-// Postconditions: string wit month, year, first, and last name
->>>>>>> ae0cff8c539ddb566a4f3b4018da488fc3a0b534
-// -----------------------------------------------------------------------------
 void ClassicMovie::setDataTwice(istream& infile) 
 {
 	infile >> month;
@@ -100,12 +85,12 @@ void ClassicMovie::setDataTwice(istream& infile)
 
 }
 
-
 // --------------------- Display -------------------------------------------
 // Display: display classic movie data 
 // Preconditions: none
 // Postconditions: String of classic data from title to actor last name
 // -----------------------------------------------------------------------------
+
 void ClassicMovie::display() const 
 {
 	cout << left << setw(22) << title << " "
@@ -122,8 +107,8 @@ void ClassicMovie::display() const
 // -----------------------------------------------------------------------------
 void ClassicMovie::displayHeader() const
 {
-	cout << "IN/OUT *TITLE*                *DIRECTOR*         *MO**YEAR* " <<
-		"*ACTOR* " << endl;
+	cout << "IN/OUT  TITLE                  DIRECTOR           MO /YEAR " <<
+		" ACTOR " << endl;
 	cout <<
 		"---------------------------------------------------------------------"
 		<< endl;
@@ -145,10 +130,6 @@ bool ClassicMovie::operator==(const Inventory& inv) const
 		actorLast == aClassic.actorLast);
 }
 
-// --------------------- operator< -------------------------------------------
-// Comparison operator to determine sorting
-// Preconditions: inventory built
-// Postconditions: boolean result of less than (true) or greater than (false)
 // --------------------- Operator< -------------------------------------------
 // Operator<: This method is used to organize the movie by year and actor
 // Preconditions: Inventory object 
@@ -179,10 +160,6 @@ bool ClassicMovie::operator<(const Inventory& inv) const
 		return false;
 }
 
-// --------------------- create() -------------------------------------------
-// Create a classic movie object
-// Preconditions: none
-// Postconditions: classic movie object created
 // --------------------- Create -------------------------------------------
 // create: Return instance of classic movie
 // Preconditions: none
