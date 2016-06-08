@@ -11,7 +11,6 @@
 #define INVENTORY_H
 
 #include <iomanip>
-
 #include <string>
 #include <iostream>
 #include <fstream>

@@ -50,20 +50,20 @@ Hash::~Hash()
 	}
 }
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- Convert to Subscript -------------------------------------------
+// Function to handle uppercase letters by changing them to lowercase
+// Preconditions: char to analyze
+// Postconditions: modified char or nothing
 // -----------------------------------------------------------------------------
 int Hash::convertToSubscript(char ch)
 {
 	return hash(ch);		// Return subscript from helper function
 }
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- Hash -------------------------------------------
+// Helper function to handle uppercase letters by changing them to lowercase
+// Preconditions: char to analyze and possibly modify
+// Postconditions: modified char to lowercase if necessary, otherwise nothing
 // -----------------------------------------------------------------------------
 int Hash::hash(char ch) const 
 {
@@ -73,17 +73,17 @@ int Hash::hash(char ch) const
 		return 0;
 }
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- Get Media Type -------------------------------------------
+// Locate type of media
+// Preconditions: char distinguishing type of media
+// Postconditions: type of media returned
 // -----------------------------------------------------------------------------
 string Hash::getMediaType(char ch)
 {
 	return mediaType[hash(ch)];		// Return media type
 }
 
-// --------------------- Inventory() -------------------------------------------
+// --------------------- Create Movie() -------------------------------------------
 // Create movie in inventory
 // Preconditions: valid input movie file and character
 // Postconditions: Inventory item
@@ -103,10 +103,10 @@ Inventory * Hash::createMovie(char ch, istream& infile)
 	}
 }
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- Create Transaction() -------------------------------------------
+// Create transaction item
+// Preconditions: valid file and char value
+// Postconditions: transaction generated
 // -----------------------------------------------------------------------------
 Transaction * Hash::createTransaction(char ch, istream& infile) 
 {
@@ -122,10 +122,10 @@ Transaction * Hash::createTransaction(char ch, istream& infile)
 		return transactionInventory[subscript]->create(); // Create transaction item based on subscript
 }	
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
+// --------------------- Init Inventory -------------------------------------------
+// Initialize inventory, set all parts of Inventory to NULL in the beginning
 // Preconditions: none
-// Postconditions: none
+// Postconditions: Inventory to work with
 // -----------------------------------------------------------------------------
 void Hash::initInventory() 
 {

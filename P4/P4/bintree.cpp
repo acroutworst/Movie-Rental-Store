@@ -58,7 +58,7 @@ void BinTree::makeEmpty()
 	destroyTree(root);
 }
 
-// --------------------- Inventory() -------------------------------------------
+// --------------------- Destroy Tree ------------------------------------------
 // destroyTree: postorder removal of nodes
 // Preconditions: A node to remove
 // Postconditions: An empty tree
@@ -135,10 +135,10 @@ bool BinTree::insert(Inventory* insertMovie, const int copiesIn)
 	return true;
 } 
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- Retrieve -------------------------------------------
+// Retrive data in a specific node in BST
+// Preconditions: data to find, tracker to see if found
+// Postconditions: data retrieved or not
 // -----------------------------------------------------------------------------
 bool BinTree::retrieve(const Inventory& data, Inventory*& found) const 
 {
@@ -150,10 +150,10 @@ bool BinTree::retrieve(const Inventory& data, Inventory*& found) const
 		return false;
 } 
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- Retriver Helper -------------------------------------------
+// Helper function for retrieve
+// Preconditions: current node, data looking for, and tracker to see if found
+// Postconditions: found data or not
 // -----------------------------------------------------------------------------
 void BinTree::retrieveHelper(Node* curr, const Inventory & data, Inventory*& found) const 
 {
@@ -169,10 +169,10 @@ void BinTree::retrieveHelper(Node* curr, const Inventory & data, Inventory*& fou
 		retrieveHelper(curr->right, data, found);
 }
 
-// --------------------- Inventory() -------------------------------------------
-// Default constructor
-// Preconditions: none
-// Postconditions: none
+// --------------------- In Order Display -------------------------------------------
+// Display data in BST using InOrder traversal
+// Preconditions: current node to start at
+// Postconditions: data displayed
 // -----------------------------------------------------------------------------
 void BinTree::inorderDisplay(Node * curr) const
 {
@@ -193,10 +193,10 @@ void BinTree::inorderDisplay(Node * curr) const
 	}
 }
 
- // --------------------- Inventory() -------------------------------------------
- // Default constructor
+ // --------------------- Get Root -------------------------------------------
+ // retrieve root of BST
  // Preconditions: none
- // Postconditions: none
+ // Postconditions: root returned
  // -----------------------------------------------------------------------------
 BinTree::Node * BinTree::getRoot() const 
 { 
