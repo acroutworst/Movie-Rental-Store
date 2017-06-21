@@ -1,4 +1,4 @@
-# Program4
+# Movie Rental Store
 Hash Table Implementation
 
 git pull (grab any changed/added files)
